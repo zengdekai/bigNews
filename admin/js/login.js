@@ -38,6 +38,16 @@ $('.input_sub').click(function (e) {
         success: function(backData){
             console.log(backData);
             if (backData.code == 200) {
+                // 使用localstrong将token存储到本地
+                /* 
+                sessionstorage 与 localstronge 区别
+                相同点: 作用一致都是存储数据
+                不同点: 存储方式不同
+                sessionstorage: 存储在内存中 
+                localstorage: 存储在硬盘中
+                */
+                localStorage.setItem('token',backData.token);
+
                 // alert('登录成功');
                  //(1)设置模态框文本
               $('.modal-body>p').text('登录成功');
